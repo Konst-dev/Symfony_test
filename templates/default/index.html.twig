@@ -2,4 +2,33 @@
 
 {% block body %}
    <h1> {{message}}</h1>
+   	
+
+      <script>
+
+         async function sendData(url, data) {
+            fetch(url, {
+                     method: 'GET',
+                     headers: {
+                        'Content-Type': 'application/json',
+                     },
+                     //body: JSON.stringify(data),
+                  })
+                  .then(response => response.json())
+                  .then((data) => {
+                     //if (data['sent'] === 'OK') {
+                        console.log(data);
+                        //alert(data['message']);
+                        // window.location.href = '/';
+                     // } else
+                     //     console.log('Ошибка отправки данных');
+                  })
+                  .catch((error) => {
+                     console.error(error);
+                  });
+         }
+         
+            sendData('/books/getallbooks',[]);
+
+	</script>
 {% endblock %}
