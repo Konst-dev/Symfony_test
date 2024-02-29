@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2>Удалить книгу:</h2>    
+    <form action="/books/deletebook" method="POST">
+    <label for="delete_book">Выберите книгу для удаления</label>
+    <select name="delete_book[id]" id="delete_book">
+        {% for book in books %}
+            <option value="{{book.getId()}}">{{book.getTitle()}}, {{book.getYear()}}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value='Удалить'>
+    </form>
+{% endblock %}

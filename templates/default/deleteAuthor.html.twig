@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2>Удалить Автора:</h2>    
+    <form action="/books/deleteauthor" method="POST">
+    <label for="delete_author">Выберите автора для удаления</label>
+    <select name="delete_author[id]" id="delete_author">
+        {% for author in authors %}
+            <option value="{{author.getId()}}">{{author.getLastName()}} {{author.getFirstName()}}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value='Удалить'>
+    </form>
+{% endblock %}

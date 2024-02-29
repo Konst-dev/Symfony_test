@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2>Удалить Издателя:</h2>    
+    <form action="/books/deletepublisher" method="POST">
+    <label for="delete_publisher">Выберите книгу для удаления</label>
+    <select name="delete_publisher[id]" id="delete_publisher">
+        {% for publisher in publishers %}
+            <option value="{{publisher.getId()}}">{{publisher.getName()}}, {{publisher.getAddress()}}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value='Удалить'>
+    </form>
+{% endblock %}
