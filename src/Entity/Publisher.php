@@ -21,7 +21,7 @@ class Publisher
     #[ORM\Column(length: 255)]
     private ?string $address = null;
 
-    #[ORM\OneToMany(targetEntity: Book::class, mappedBy: 'publisher')]
+    #[ORM\OneToMany(targetEntity: Book::class, mappedBy: 'publisher', cascade: ["remove"])]
     private Collection $books;
 
     public function __construct()
