@@ -29,10 +29,12 @@
 	
 		sendData('/books/getallbooks',[]);
         function print(data){
-            console.log(data);
             for(var el in data){
-                console.log(el);
-                document.write('<p>'+data[el]['title']+', '+data[el]['title']+'</p>');
+                document.write('<p>'+data[el]['title']+', '+data[el]['year']+', ');
+                for(var ln in data[el]['last_names']){
+                    document.write(data[el]['last_names'][ln]+', ');
+                }
+                document.write(data[el]['publisher']+'</p>');
             }
         }
 
