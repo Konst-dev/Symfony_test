@@ -3,7 +3,8 @@
 {% block body %}
    <h1> {{message}}</h1>
 <script>
-	async function sendData(url, data) {
+	let books={};
+    async function sendData(url, data) {
         fetch(url, {
                 method: 'GET',
                 headers: {
@@ -14,6 +15,7 @@
             .then(response => response.json())
             .then((data) => {
                 //if (data['sent'] === 'OK') {
+                    print(data);
                     console.log(data);
                     //alert(data['message']);
                    // window.location.href = '/';
@@ -26,6 +28,13 @@
     }
 	
 		sendData('/books/getallbooks',[]);
+        function print(data){
+            console.log(data);
+            for(var el in data){
+                console.log(el);
+                document.write('<p>'+data[el]['title']+', '+data[el]['title']+'</p>');
+            }
+        }
 
 	</script>
 {% endblock %}
